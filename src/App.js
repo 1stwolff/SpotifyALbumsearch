@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
 import worker from './webworker.mjs';
 
-
+// hide my client secret and id for spotify setup in my .env hidden with .gitignore
 const clientId = process.env.REACT_APP_CLIENT_ID;
 const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
 
 
-
+// for my webworker
 const playlistWorker = worker;
 
-
+// set up my states 
 function App() {
  const [searchInput, setSearchInput] = useState("");
  const [accessToken, setAccessToken] = useState("");
