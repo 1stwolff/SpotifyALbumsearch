@@ -17,9 +17,8 @@ function App() {
  const [albums, setAlbums] = useState([]);
  const [playlist, setPlaylist] = useState([]);
 
-
+// fetch from spotify api accessToken
  useEffect(() => {
-   // API AccessToken
    var authParameters = {
     method: 'POST',
     headers: {
@@ -36,7 +35,7 @@ function App() {
  }, []);
 
 
- // Handle messages from the web worker
+ // Handles messages from the web worker
  playlistWorker.onmessage = function (e) {
    const result = e.data;
    setPlaylist((prevPlaylist) => [...prevPlaylist, result]);
@@ -50,7 +49,7 @@ function App() {
  };
 
 
-  // Search
+  // Search from spotify api
 async function search() {
  console.log("Search for " + searchInput);
 
@@ -91,7 +90,7 @@ async function search() {
 
 
 
-
+// user interface
  return (
    <div className="App">
      <Container>
@@ -112,6 +111,7 @@ async function search() {
          </Button>
        </InputGroup>
      </Container>
+     {/* My albums go here */}
      <Container>
        <Row xs={1} sm={2} md={3} lg={4} className='mx-2'>
          {albums.map((album, i) => (
@@ -125,6 +125,7 @@ async function search() {
          ))}
        </Row>
      </Container>
+     {/* playlits */}
      <Container>
        <h2>Playlist</h2>
        <ul>
